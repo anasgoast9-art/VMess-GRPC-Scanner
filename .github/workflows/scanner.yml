@@ -1,0 +1,31 @@
+name: Scan VMess gRPC
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scan
+        run: python scanner.py
+
+      - name: Save results
+        uses: actions/upload-artifact@v4
+        with:
+          name: vmess-grpc-results
+          path: results.txt
+          retention-days: 7
