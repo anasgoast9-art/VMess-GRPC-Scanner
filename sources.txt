@@ -1,0 +1,5 @@
+# Add direct RAW URLs to public text files containing vmess:// links.
+# One URL per line. Example format:
+# https://raw.githubusercontent.com/OWNER/REPOSITORY/BRANCH/path/to/list.txt
+#
+# Use sources you trust and are permitted to access.
